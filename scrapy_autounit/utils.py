@@ -89,7 +89,8 @@ def get_or_create_test_dir(base_path, spider_name, callback_name, extra=None):
     components = [base_path, 'tests', spider_name]
     if extra:
         components.append(extra)
-    components.append(callback_name)
+    if callback_name:
+      components.append(callback_name)
     test_dir = None
     for component in components:
         test_dir = os.path.join(test_dir, component) if test_dir else component
